@@ -88,6 +88,53 @@ console.log(`--------------------------문제34--------------------------`);
 // }
 // console.log(height.join(" "));
 
+// let height = prompt("공백으로 구분하여 키를 입력하세요").split(" ")
+// // Q 왜 변수를 선언하지 않아도 정상적으로 작동할까?
+// let temp
+// for (let j = 0; j < height.length - 1; j++) {
+//     for (let i = 0; i < height.length - 1; i++) {
+//         if (height[i] > height[i + 1]) {
+//             temp = height[i];
+//             height[i] = height[i + 1];
+//             height[i + 1] = temp;
+//         }
+//     }
+// }
+// console.log(height.join(" "));
+
+// solution
+// const unsorted = prompt('키를 입력하세요');
+// let sorted = "";
+
+// sorted = unsorted
+//   .split(" ")
+//   .sort(function(a, b) {
+//     return a - b;
+//   })
+//   .join(" ");
+
+// if (unsorted === sorted) {
+//   console.log("Yes");
+// } else {
+//   console.log("No");
+// }
+
+const unsorted = "176 156 155 165 166 169";
+let sorted = "";
+
+sorted = unsorted
+    .split(" ")
+    .sort(function (a, b) {
+        return a - b;
+    })
+    .join(" ");
+
+if (unsorted === sorted) {
+    console.log(`입력 : ${sorted}\n출력 : YES`);
+} else {
+    console.log(`입력 : ${unsorted}\n출력 : NO`);
+}
+
 console.log(`--------------------------문제35--------------------------`);
 
 // 문제35 : Factory 함수 사용하기
@@ -95,20 +142,20 @@ console.log(`--------------------------문제35--------------------------`);
 
 // <pass>에 코드를 작성하여 two함수를 완성하세요.
 
-// function one(n){
-//     function two(){
-//         //pass
-//     }
-//     return two;
-// }
+function one(n) {
+    function two(value) {
+        return Math.pow(value, n);
+    }
+    return two;
+}
 
-// const a = one(2);
-// const b = one(3);
-// const c = one(4);
+const a = one(2);
+const b = one(3);
+const c = one(4);
 
-// console.log(a(10));
-// console.log(b(10));
-// console.log(c(10));
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
 
 console.log(`--------------------------문제36--------------------------`);
 
@@ -160,7 +207,18 @@ console.log(`--------------------------문제37--------------------------`);
 // 출력
 // 혜원(이)가 총 4표로 반장이 되었습니다.
 
-// let inputName = prompt("뽑힌 후보들을 공백으로 구분하여 입력하세요")
+let inputName = prompt("뽑힌 후보들을 공백으로 구분하여 입력하세요")
+    .split(" ")
+    .sort();
+let count = 0;
+for (let i = 0; i < inputName.length - 1; i++) {
+    if (inputName[i] === inputName[i + 1]) {
+        count++;
+    } else {
+        break;
+    }
+}
+console.log(count + 1);
 
 console.log(`--------------------------문제38--------------------------`);
 
