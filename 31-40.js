@@ -207,18 +207,67 @@ console.log(`--------------------------문제37--------------------------`);
 // 출력
 // 혜원(이)가 총 4표로 반장이 되었습니다.
 
-let inputName = prompt("뽑힌 후보들을 공백으로 구분하여 입력하세요")
-    .split(" ")
-    .sort();
-let count = 0;
-for (let i = 0; i < inputName.length - 1; i++) {
-    if (inputName[i] === inputName[i + 1]) {
-        count++;
-    } else {
-        break;
-    }
+// 시행착오 1
+// let inputName = prompt("뽑힌 후보들을 공백으로 구분하여 입력하세요")
+//     .split(" ")
+//     .sort();
+// let count = 0;
+// for (let i = 0; i < inputName.length - 1; i++) {
+//     if (inputName[i] === inputName[i + 1]) {
+//         count++;
+//     } else {
+//         break;
+//     }
+// }
+// console.log(count + 1);
+
+// 정상작동
+// let inputName = prompt("뽑힌 후보들을 공백으로 구분하여 입력하세요")
+// console.log(`입력 : ${inputName}`)
+// inputName = inputName.split(" ").sort();
+// let obj = {}
+
+// while (inputName.length > 0) {
+// obj[inputName[0]] = inputName.splice(0, inputName.filter(x => x === inputName[0]).length).length
+// }
+// let valueMax = Math.max(...Object.values(obj))
+
+// console.log(`출력 : ${Object.keys(obj).find(x => obj[x] === valueMax)}(이)가 총 ${valueMax}표로 반장이 되었습니다.`)
+
+let inputName = "원범 원범 혜원 혜원 혜원 혜원 유진 유진";
+console.log(`입력 : ${inputName}`);
+inputName = inputName.split(" ").sort();
+let obj = {};
+
+while (inputName.length > 0) {
+    obj[inputName[0]] = inputName.splice(
+        0,
+        inputName.filter((x) => x === inputName[0]).length
+    ).length;
 }
-console.log(count + 1);
+let valueMax = Math.max(...Object.values(obj));
+
+console.log(
+    `출력 : ${Object.keys(obj).find(
+        (x) => obj[x] === valueMax
+    )}(이)가 총 ${valueMax}표로 반장이 되었습니다.`
+);
+
+// solution
+// const array = prompt('이름을 입력해주세요.').split(' ');
+// let result = {};
+// let winner = "";
+
+// for(let index in array){
+//   let val = array[index];
+//   result[val] = result[val] === undefined ? 1 : result[val] = result[val] + 1;
+// }
+
+// winner = Object.keys(result).reduce(function(a, b){
+//   return result[a] > result[b] ? a : b
+// });
+
+// console.log(`${winner}(이)가 총 ${result[winner]}표로 반장이 되었습니다.`);
 
 console.log(`--------------------------문제38--------------------------`);
 
@@ -338,12 +387,44 @@ console.log(`--------------------------문제40--------------------------`);
 // let weightLimit = prompt("제한 무게를 입력해주세요");
 // let headCount = prompt("탑승인원을 입력해주세요")
 // let weight = prompt("탑승인원의 무게를 공백으로 구분하여 입력하세요")
-// let arrWeight = weight.split(" ")
 // let arrWeightCount = []
-// for (let i = 0; i < arrWeight.length; i++) {
-//     if (arrWeight[i] <= 50) {
-//     arrWeightCount.push(arrWeight.shift())
+// let sum = 0;
+// for (let i = 0; i < weight.length; i++) {
+//     sum += parseInt(weight[i])
+//     if (sum <= parseInt(weightLimit)) {
+//     arrWeightCount.push(weight.slice(i, i + 1))
 //     }
 // }
 
 // console.log(`입력 : \n${weightLimit}\n${headCount}\n${weight}\n출력 : ${arrWeightCount.length}`)
+
+let weightLimit = "50";
+let headCount = "5";
+let weight = "20 20 20 20 20";
+let arrWeightCount = [];
+let sum = 0;
+for (let i = 0; i < weight.length; i++) {
+    sum += parseInt(weight[i]);
+    if (sum <= parseInt(weightLimit)) {
+        arrWeightCount.push(weight.slice(i, i + 1));
+    }
+}
+
+console.log(
+    `입력 : \n${weightLimit}\n${headCount}\n${weight}\n출력 : ${arrWeightCount.length}`
+);
+
+// solution
+// let total = 0;
+// let count = 0;
+// const limit = prompt('제한 무게를 입력하세요.');
+// const n = prompt('인원수를 입력하세요.');
+
+// for (let i=1; i<=n; i++){
+//   total += parseInt(prompt('무게를 입력해주세요.'), 10);
+//   if (total <= limit){
+// 		count = i;
+//   }
+// }
+
+// console.log(count);
