@@ -76,12 +76,26 @@ console.log(`--------------------------문제34--------------------------`);
 // 입력 : 155 156 165 166 169 176
 // 출력 : YES
 
+// 이 방법은 왜 안될까?
 // let height = prompt("공백으로 구분하여 키를 입력하세요").split(" ");
 // let i = 0
 // while (i < height.length - 1) {
 //     for (i = 0; i < height.length - 1; i++) {
 //         if (height[i] > height[i + 1]) {
 //             height.splice(i, 0, height.splice(i + 1, 1).toString());
+//         }
+//     }
+//     i++
+// }
+// console.log(height.join(" "));
+
+// 이건 가능
+// let height = prompt("공백으로 구분하여 키를 입력하세요").split(" ");
+// let i = 0
+// while (i < height.length - 1) {
+//     for (j = 0; j < height.length - 1; j++) {
+//         if (height[j] > height[j + 1]) {
+//             height.splice(j, 0, height.splice(j + 1, 1) * 1);
 //         }
 //     }
 //     i++
@@ -101,6 +115,26 @@ console.log(`--------------------------문제34--------------------------`);
 //     }
 // }
 // console.log(height.join(" "));
+
+// 50번 문제 활용
+// function bubble(arr) {
+//     let result = arr.slice();
+
+//     for (let i = 0; i < result.length - 1; i++) {
+//         for (let j = 0; j < result.length - 1; j++) {
+//             if (result[j] > result[j + 1]) {
+//                 result.splice(j, 0, result.splice(j + 1, 1).join("") * 1);
+//             }
+//         }
+//     }
+//     return result;
+// }
+
+// const items = "176 156 155 165 166 169".split(" ").map((n) => {
+//     return parseInt(n, 10);
+// });
+
+// console.log(bubble(items));
 
 // solution
 // const unsorted = prompt('키를 입력하세요');
