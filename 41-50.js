@@ -402,21 +402,44 @@ console.log(`--------------------------문제50--------------------------`);
 
 //   console.log(bubble(items));
 
+function bubble(arr) {
+    let result = arr.slice();
+
+    for (let i = 0; i < result.length - 1; i++) {
+        for (let j = 0; j < result.length - 1; j++) {
+            if (result[j] > result[j + 1]) {
+                result.splice(j, 0, result.splice(j + 1, 1).join("") * 1);
+            }
+        }
+    }
+    return result;
+}
+
+const items = "4 2 3 5 8".split(" ").map((n) => {
+    return parseInt(n, 10);
+});
+
+console.log(bubble(items));
+
+// 문제 34번에서 유사하게 적용해 봄
+// solution
 // function bubble(arr) {
-//     let result = arr.slice();
+//     let result = arr.slice(); // 원본 배열 복사
 
 //     for (let i = 0; i < result.length - 1; i++) {
-//         for (let j = 0; j < result.length - 1; j++) {
+//       for (let j = 0; j < result.length - i; j++) {
 //         if (result[j] > result[j + 1]) {
-
+//           let temp = result[j];
+//           result[j] = result[j+1];
+//           result[j+1] = temp;
 //         }
-//         }
+//       }
 //     }
 //     return result;
-//     }
+//   }
 
-//     const items = "4 2 3 5 8".split(' ').map((n) => {
+//   const items = prompt('입력해주세요.').split(' ').map((n) => {
 //     return parseInt(n, 10);
-//     });
+//   });
 
-//     console.log(bubble(items));
+//   console.log(bubble(items));
