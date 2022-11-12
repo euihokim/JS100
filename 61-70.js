@@ -333,21 +333,33 @@ console.log(`--------------------------문제67--------------------------`);
 // 출력
 // [4, 12] // [악수 횟수, 행사 참가자 수]
 
-let input = prompt("행사에서 진행된 악수 횟수(n)를 입력하세요.") * 1;
-
-// let input = "59" * 1
+// let input = prompt("행사에서 진행된 악수 횟수(n)를 입력하세요.") * 1;
 // let multiply = 0;
 // let num = 1;
 // for(let n = 1; n < Infinity; n++) {
 //         multiply = (n * (n-1))/2
 //         if (input < multiply){
+//                 --n
+//                 multiply = (n * (n-1))/2
 //             break
 //         }
 //     ++num
 //     }
+// console.log(`악수횟수: ${input - multiply} 행사 참가자 수: ${num}`)
 
-// console.log(multiply)
-// console.log(num)
+let input = "59" * 1;
+let multiply = 0;
+let num = 1;
+for (let n = 1; n < Infinity; n++) {
+    multiply = (n * (n - 1)) / 2;
+    if (input < multiply) {
+        --n;
+        multiply = (n * (n - 1)) / 2;
+        break;
+    }
+    ++num;
+}
+console.log(`악수횟수: ${input - multiply} 행사 참가자 수: ${num}`);
 
 console.log(`--------------------------문제68--------------------------`);
 
