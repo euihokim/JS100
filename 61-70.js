@@ -359,7 +359,28 @@ for (let n = 1; n < Infinity; n++) {
     }
     ++num;
 }
-console.log(`악수횟수: ${input - multiply} 행사 참가자 수: ${num}`);
+console.log(
+    `입력: ${input}\n악수횟수: ${input - multiply} 행사 참가자 수: ${num}`
+);
+
+// solution
+// function solution(n){
+//     let 사람 = 0;
+//     let 총악수 = 0;
+//     let temp = 0;
+//     while(true){
+//       총악수 = parseInt((사람*(사람-1))/2, 10);
+//       if(n < 총악수){
+//         break;
+//       }
+//       temp = 총악수;
+//       사람 += 1;
+//     }
+//     return [parseInt(n-temp, 10), 사람];
+//   }
+
+//   const 악수의수 = 59;
+//   console.log(solution(악수의수));
 
 console.log(`--------------------------문제68--------------------------`);
 
@@ -379,3 +400,121 @@ console.log(`--------------------------문제68--------------------------`);
 
 // 출력
 // ['지나갔습니다', '00시간 40분', '01시간 33분']
+
+// let bus = prompt("버스 시간표를 공백으로 구분하여 입력해 주세요. ex) 09:30 10:00 10:30").split(" ");
+// let now = prompt("현재 시간을 입력해 주세요. ex) 09:40");
+// now = now.split(":")
+// let result = []
+// let busSchedule = []
+// bus.forEach(x => {
+//     busSchedule.push(x.split(":"))
+// })
+
+// for (let i = 0; i < bus.length; i++) {
+//     let diff = (((busSchedule[i][0] * 60) + (busSchedule[i][1] * 1)) - ((now[0] * 60) + (now[1] * 1)))
+//     let hour = ~~(diff / 60)
+//     let min = (diff % 60)
+//     if (diff >= 0) {
+//         result.push(`${hour.toString().padStart(2, 0)}시간 ${min.toString().padStart(2, 0)}분`)
+//     } else {
+//         result.push(`지나갔습니다`)
+//     }
+// }
+
+// console.log(result)
+
+let bus = ["12:30", "13:20", "14:13"];
+let now = ["12:40"];
+now = now.join("").split(":");
+let output = [];
+let busSchedule = [];
+bus.forEach((x) => {
+    busSchedule.push(x.split(":"));
+});
+
+for (let i = 0; i < bus.length; i++) {
+    let diff =
+        busSchedule[i][0] * 60 +
+        busSchedule[i][1] * 1 -
+        (now[0] * 60 + now[1] * 1);
+    let hour = ~~(diff / 60);
+    let min = diff % 60;
+    if (diff >= 0) {
+        output.push(
+            `${hour.toString().padStart(2, 0)}시간 ${min
+                .toString()
+                .padStart(2, 0)}분`
+        );
+    } else {
+        output.push(`지나갔습니다`);
+    }
+}
+console.log(output);
+
+// solution
+// function solution(버스시간, 기준시간){
+//     let answer = [];
+//     기준시간 = 기준시간.split(':').map(n => parseInt(n, 10));
+//     기준시간 = (기준시간[0] * 60) + 기준시간[1];
+
+//     for (let i in 버스시간){
+//       let time = 버스시간[i].split(':').map(n => parseInt(n, 10));
+//       time = (time[0] * 60) + time[1];
+
+//       if (time < 기준시간){
+//         answer.push('지나갔습니다');
+//       } else{
+//         let 시간 = parseInt((time - 기준시간) / 60, 10);
+//         let 분 = (time - 기준시간) % 60;
+//         answer.push(String(시간).padStart(2, 0) + '시간 ' + String(분).padStart(2, 0) + '분');
+//       }
+//     }
+//     return answer;
+//   }
+
+//   console.log(solution(["12:30", "13:20", "14:13"], "12:40"));
+
+console.log(`--------------------------문제69--------------------------`);
+
+// 문제69 : 골드바흐의 추측
+// 골드바흐의 추측(Goldbach's conjecture)은 오래전부터 알려진 정수론의 미해결 문제로, 2보다 큰 모든 짝수는 두 개의 소수(Prime number)의 합으로 표시할 수 있다는 것이다. 이때 하나의 소수를 두 번 사용하는 것은 허용한다. - 위키백과
+
+// 위 설명에서 2보다 큰 모든 짝수를 두 소수의 합으로 나타낸 것을 골드바흐 파티션이라고 합니다.
+
+// 예)
+// 100 == 47 + 53
+// 56 == 19 + 37
+
+// 2보다 큰 짝수 n이 주어졌을 때, 골드바흐 파티션을 출력하는 코드를 작성하세요.
+
+// * 해당 문제의 출력 형식은 자유롭습니다. 가능하시다면 골드바흐 파티션 모두를 출력하거나, 그 차가 작은 것을 출력하거나 그 차가 큰 것 모두 출력해보세요.
+
+// let num = prompt('2보다 큰 짝수를 n을 입력해주세요.') * 1
+// let numLessThan = (num / 2) - 1
+// let numMoreThan = (num / 2) + 1
+
+// let nLT = []
+// let nMT = []
+// let result = []
+
+// while(numLessThan > 1) {
+//     if((numLessThan % 2 !== 0) && (numLessThan % 3 !== 0) && (numLessThan % 5 !== 0) && (numLessThan % 7 !== 0)) {
+//         nLT.push(numLessThan)
+//     }
+//     --numLessThan
+// }
+
+// while(numMoreThan <= num) {
+//     if((numMoreThan % 2 !== 0) && (numMoreThan % 3 !== 0) && (numMoreThan % 5 !== 0) && (numMoreThan % 7 !== 0)) {
+//         nMT.push(numMoreThan)
+//     }
+//     ++numMoreThan
+// }
+
+// for (let i = 0; i < (num / 2) - 1; i++) {
+//     if (nLT[i] + nMT[i] === 50) {
+//         result.push(`${num} = ${nLT[i]} + ${nMT[i]}`)
+//     }
+// }
+
+// console.log(result)
