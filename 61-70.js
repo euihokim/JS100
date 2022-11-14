@@ -489,6 +489,7 @@ console.log(`--------------------------문제69--------------------------`);
 
 // * 해당 문제의 출력 형식은 자유롭습니다. 가능하시다면 골드바흐 파티션 모두를 출력하거나, 그 차가 작은 것을 출력하거나 그 차가 큰 것 모두 출력해보세요.
 
+// sol 1
 // let num = prompt('2보다 큰 짝수를 n을 입력해주세요.') * 1
 // let numLessThan = (num / 2) - 1
 // let numMoreThan = (num / 2) + 1
@@ -511,10 +512,265 @@ console.log(`--------------------------문제69--------------------------`);
 //     ++numMoreThan
 // }
 
-// for (let i = 0; i < (num / 2) - 1; i++) {
-//     if (nLT[i] + nMT[i] === 50) {
-//         result.push(`${num} = ${nLT[i]} + ${nMT[i]}`)
+// for (let i = 0; i < nLT.length; i++) {
+//     for (let j = 0; j < nMT.length; j++) {
+//         if(nLT[i] + nMT[j] === num) {
+//             result.push(`${num} = ${nLT[i]} + ${nMT[j]}`)
+//         }
+//     }
+// }
+// console.log(result)
+
+// sol 2
+// let num = prompt('2보다 큰 짝수를 n을 입력해주세요.') * 1
+// let numLessThan = (num / 2) - 1
+// let numMoreThan = (num / 2) + 1
+
+// let nLT = []
+// let nMT = []
+
+// while(numLessThan > 1) {
+//     if((numLessThan % 2 !== 0) && (numLessThan % 3 !== 0) && (numLessThan % 5 !== 0) && (numLessThan % 7 !== 0)) {
+//         nLT.push(numLessThan)
+//     }
+//     --numLessThan
+// }
+
+// while(numMoreThan <= num) {
+//     if((numMoreThan % 2 !== 0) && (numMoreThan % 3 !== 0) && (numMoreThan % 5 !== 0) && (numMoreThan % 7 !== 0)) {
+//         nMT.push(numMoreThan)
+//     }
+//     ++numMoreThan
+// }
+
+// for (let i = 0; i < nLT.length; i++) {
+//     for (let j = 0; j < nMT.length; j++) {
+//         if(nLT[i] + nMT[j] === num) {
+//             console.log(`${num} = ${nLT[i]} + ${nMT[j]}`)
+//         }
 //     }
 // }
 
-// console.log(result)
+// sol 1
+let num1 = "100" * 1;
+let numLessThan = num1 / 2 - 1;
+let numMoreThan = num1 / 2 + 1;
+
+let nLT = [];
+let nMT = [];
+let result1 = [];
+
+while (numLessThan > 1) {
+    if (
+        numLessThan % 2 !== 0 &&
+        numLessThan % 3 !== 0 &&
+        numLessThan % 5 !== 0 &&
+        numLessThan % 7 !== 0
+    ) {
+        nLT.push(numLessThan);
+    }
+    --numLessThan;
+}
+
+while (numMoreThan <= num1) {
+    if (
+        numMoreThan % 2 !== 0 &&
+        numMoreThan % 3 !== 0 &&
+        numMoreThan % 5 !== 0 &&
+        numMoreThan % 7 !== 0
+    ) {
+        nMT.push(numMoreThan);
+    }
+    ++numMoreThan;
+}
+
+for (let i = 0; i < nLT.length; i++) {
+    for (let j = 0; j < nMT.length; j++) {
+        if (nLT[i] + nMT[j] === num1) {
+            result1.push(`${num1} = ${nLT[i]} + ${nMT[j]}`);
+        }
+    }
+}
+console.log(result1);
+
+// sol 구분용 console.log("");
+console.log("");
+
+// sol 2
+let num2 = "56" * 1;
+let numLessThan2 = num2 / 2 - 1;
+let numMoreThan2 = num2 / 2 + 1;
+
+let nLT2 = [];
+let nMT2 = [];
+
+while (numLessThan2 > 1) {
+    if (
+        numLessThan2 % 2 !== 0 &&
+        numLessThan2 % 3 !== 0 &&
+        numLessThan2 % 5 !== 0 &&
+        numLessThan2 % 7 !== 0
+    ) {
+        nLT2.push(numLessThan2);
+    }
+    --numLessThan2;
+}
+
+while (numMoreThan2 <= num2) {
+    if (
+        numMoreThan2 % 2 !== 0 &&
+        numMoreThan2 % 3 !== 0 &&
+        numMoreThan2 % 5 !== 0 &&
+        numMoreThan2 % 7 !== 0
+    ) {
+        nMT2.push(numMoreThan2);
+    }
+    ++numMoreThan2;
+}
+
+for (let i = 0; i < nLT2.length; i++) {
+    for (let j = 0; j < nMT2.length; j++) {
+        if (nLT2[i] + nMT2[j] === num2) {
+            console.log(`${num2} = ${nLT2[i]} + ${nMT2[j]}`);
+        }
+    }
+}
+
+// solution
+// 소수 구하기
+// let prime = [];
+// let isPrime = true;
+
+// for(let i = 2; i < 100; i++){
+//    for(let j = 2; j < i; j++){
+//      if(i % j == 0){
+//        isPrime = false;
+//      }
+//    }
+//    if(isPrime){
+//      prime.push(i);
+//    }
+//    isPrime = true;
+// }
+
+// let val = parseInt(prompt('숫자를 입력하세요:'), 10);
+
+// let 골드바흐파티션 = [];
+
+// for(let n of prime){
+//   if(prime.includes(val - n) && n <= (val - n)){
+//     골드바흐파티션.push([n, val - n])
+//   }
+// }
+
+// let 차 = 골드바흐파티션.map(e => e[1] - e[0]);
+
+// let 작은값 = 골드바흐파티션[차.indexOf(Math.min.apply(null,차))];
+// let 큰값 = 골드바흐파티션[차.indexOf(Math.max.apply(null,차))];
+
+// console.log(골드바흐파티션);
+// console.log(작은값);
+// console.log(큰값);
+
+// + 에라토스테네스의 체
+// function prime_list(n){
+//     //에라토스테네스의 체 초기화: n개 요소에 True 설정(소수로 간주)
+//     let sieve = []
+//     for(let i = 2; i < n; i++){
+//       sieve.push(true);
+//     }
+
+//     //n의 최대 약수가 sqrt(n) 이하이므로 i=sqrt(n)까지 검사
+//     let m = parseInt(n ** 0.5, 10);
+//     for(let i = 2; i < m + 1; i++){
+//         if (sieve[i] == true){      // i가 소수인 경우
+//           for(let j = i+i; j < n; j+=i){ // i이후 i의 배수들을 False 판정
+//                 sieve[j] = false;
+//             }
+//         }
+//     }
+
+//     // 소수 목록 산출
+//     let prime = [];
+//     for(let i = 2; i < n; i++){
+//       if (sieve[i] == true){
+//         prime.push(i);
+//       }
+//     }
+
+//     return prime;
+// }
+
+console.log(`--------------------------문제70--------------------------`);
+
+// 문제70 : 행렬 곱하기
+// 행렬 2개가 주어졌을 때 곱할 수 있는 행렬인지 확인하고 곱할 수 있다면 그 결과를 출력하고,
+// 곱할 수 없다면 -1을 출력하는 프로그램을 만들어주세요.
+
+// 입력
+// a = [[1, 2],
+// 		[2, 4]]
+
+// b = [[1, 0],
+// 		[0, 3]]
+
+// 출력
+// [[1, 6], [2, 12]]
+
+// m x n / n x r => m x r 크기 행렬
+// 2 by 2 matrix
+let A = [
+    [1, 2],
+    [2, 4],
+];
+let B = [
+    [1, 0],
+    [0, 3],
+];
+
+let rowA = A.length;
+let colA = A[0].length;
+
+let rowB = B.length;
+let colB = B[0].length;
+
+let resultMatrix = [];
+
+if (colA === rowB) {
+    let a = A[0][0] * B[0][0] + A[0][1] * B[1][0];
+    let b = A[0][0] * B[0][1] + A[0][1] * B[1][1];
+    let c = A[1][0] * B[0][0] + A[1][1] * B[1][0];
+    let d = A[1][0] * B[0][1] + A[1][1] * B[1][1];
+    resultMatrix.push([a, b], [c, d]);
+    console.log(resultMatrix);
+} else {
+    console.log(-1);
+}
+
+// solution
+// function solution(a, b) {
+//     let c = [];
+//     const len = a[0].length;
+
+//     if (len === b.length){
+//         for(let i=0; i<len; i++){
+//             let row = [];
+//             for(let j=0; j<len; j++){
+//                 let x = 0;
+//                 for(let k=0; k<len; k++){
+//                     x += a[i][k]*b[k][j];
+//                 }
+//                 row.push(x);
+//             }
+//             c.push(row);
+//         }
+//         return c;
+//     } else {
+//         return -1;
+//     }
+// }
+
+// const a = [[1, 2], [2, 4]];
+// const b = [[1, 0], [0, 3]];
+
+// console.log(solution(a, b));
