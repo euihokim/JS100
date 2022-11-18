@@ -171,3 +171,40 @@ console.log(`--------------------------문제73--------------------------`);
 
 // 출력
 // 2
+
+const graph3 = {
+    A: ["B", "C"],
+    B: ["A", "D", "E"],
+    C: ["A", "F"],
+    D: ["B"],
+    E: ["B", "F"],
+    F: ["C", "E"],
+};
+
+function bfsShortestRoute(graph3, dfsStartNode) {
+    let dfsVisited = [];
+    let dfsStack = [dfsStartNode];
+
+    while (dfsStack.length !== 0) {
+        let dfsNode = dfsStack.pop();
+        if (!dfsVisited.includes(dfsNode)) {
+            dfsVisited.push(dfsNode);
+            dfsStack = [...dfsStack, ...graph3[dfsNode]];
+        }
+    }
+    return dfsVisited;
+}
+
+function dfsShortestRoute(graph3, bfsStartNode) {
+    let bfsVisited = [];
+    let bfsQueue = [bfsStartNode];
+
+    while (bfsQueue.length !== 0) {
+        let bfsNode = bfsQueue.shift();
+        if (!bfsStartNode.includes(bfsNode)) {
+            bfsVisited.push(bfsNode);
+            bfsQueue = [...bfsQueue, ...graph3[bfsNode]];
+        }
+    }
+    return bfsVisited;
+}
