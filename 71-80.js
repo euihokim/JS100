@@ -820,3 +820,29 @@ console.log(`--------------------------문제80--------------------------`);
 
 // let input = prompt("선택할 한글 자음을 공백으로 구분하여 입력하세요.").split(" ");
 // let combination = prompt("조합의 수를 입력하세요.") * 1;
+
+// solution
+// function combination(chars) {
+//     let combi = [];
+
+//     const f = (prefix, chars) => {
+//       for (let i=0; i<chars.length; i++) {
+//         combi.push(prefix + chars[i]);
+
+//         f(prefix + chars[i], chars.slice(i + 1));
+//       }
+//     }
+
+//     f('', chars);
+
+//     //조합의 수에 맞는 것만 추출!
+//     const result = combi.filter(x => x.length === n);
+//     console.log(result);
+
+//     return result.length;
+// }
+
+// const arr = prompt('입력해주세요').split(',');
+// const n = parseInt(prompt('조합의 수를 입력해주세요'), 10);
+
+// console.log(combination(arr));
